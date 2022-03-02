@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://haozhihang123.github.io</id>
     <title>HAOZH&apos;S Blog</title>
-    <updated>2022-03-01T13:09:34.325Z</updated>
+    <updated>2022-03-02T00:48:20.369Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://haozhihang123.github.io"/>
     <link rel="self" href="https://haozhihang123.github.io/atom.xml"/>
@@ -10,6 +10,296 @@
     <logo>https://haozhihang123.github.io/images/avatar.png</logo>
     <icon>https://haozhihang123.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, HAOZH&apos;S Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[python日常问题汇总]]></title>
+        <id>https://haozhihang123.github.io/post/python-ri-chang-wen-ti-hui-zong/</id>
+        <link href="https://haozhihang123.github.io/post/python-ri-chang-wen-ti-hui-zong/">
+        </link>
+        <updated>2022-03-01T13:11:20.000Z</updated>
+        <content type="html"><![CDATA[<hr>
+<h2 id="title-python-日常功能记录date-2021-10-16-152459tags-python学习categories-python长哟那个功能记录top_img-falsecover">title: python 日常功能记录<br>
+date: 2021-10-16 15:24:59<br>
+tags: python学习<br>
+categories: python长哟那个功能记录<br>
+top_img: false<br>
+cover:</h2>
+<p>平时用python过程中，总需要找的简单的程序记录下来，以后方便使用。</p>
+<h2 id="python读写txt">python读写txt</h2>
+<p>读文件时加with是python自动调用close()函数,如果出现UnicodeDecodeError错误，需要在open中加入encoding=‘UTF-8’</p>
+<h3 id="1读取所有行">1.读取所有行</h3>
+<pre><code class="language-python">with open('test.txt','r', encoding='UTF-8') as f:
+    data = f.readlines()
+print(data)
+</code></pre>
+<h3 id="2读取单行">2.读取单行</h3>
+<pre><code class="language-python">with open('test.txt','r', encoding='UTF-8') as f:
+    data = f.readline()
+    print(data)
+</code></pre>
+<h3 id="3读取文件所有内容">3.读取文件所有内容</h3>
+<pre><code class="language-python">with open('test.txt','r', encoding='UTF-8') as f:
+    data = f.read()
+    print(data)
+</code></pre>
+<h3 id="4写文件操作">4.写文件操作</h3>
+<pre><code class="language-python">&gt;&gt;&gt; f = open('test.txt', 'w') # 若是'wb'就表示写二进制文件
+&gt;&gt;&gt; f.write('Hello, world!')
+&gt;&gt;&gt; f.close()
+</code></pre>
+<h3 id="5numpy保存数据加载数据字典格式">5.numpy保存数据/加载数据/字典格式</h3>
+<pre><code class="language-python">&gt;&gt;&gt; import numpy as np
+&gt;&gt;&gt; test = {'name':'xiaoming','age':12,'job':'student'}
+&gt;&gt;&gt; np.save('test.npy',test)
+&gt;&gt;&gt; load_test = np.load('test.npy',allow_pickle=True)
+&gt;&gt;&gt; load_test.item()
+{'name': 'xiaoming', 'age': 12, 'job': 'student'}
+&gt;&gt;&gt; load_test.item().get('name')
+'xiaoming'
+</code></pre>
+<h3 id="6循环读取字典">6.循环读取字典</h3>
+<pre><code class="language-python">&gt;&gt;&gt; test = {'name':'xiaoming'}
+&gt;&gt;&gt; for (key,value) in test.items():
+&gt;&gt;&gt;     print(key+':'+value)
+'name':'xiaoming'
+</code></pre>
+<h3 id="7四舍五入函数">7.四舍五入函数</h3>
+<pre><code class="language-python">&gt;&gt;&gt; round(1.2)
+1
+&gt;&gt;&gt; round(1.9)
+2
+</code></pre>
+<h3 id="8向上取整函数">8.向上取整函数</h3>
+<pre><code class="language-python">&gt;&gt;&gt; import math
+&gt;&gt;&gt; math.ceil(1.1)
+2
+&gt;&gt;&gt; math.ceil(1.4)
+2
+&gt;&gt;&gt; math.ceil(1.9)
+2
+</code></pre>
+<h3 id="9向下取整函数">9.向下取整函数</h3>
+<pre><code class="language-python">&gt;&gt;&gt; import math
+&gt;&gt;&gt; math.floor(1.9)
+1
+&gt;&gt;&gt; math.floor(1.5)
+1
+&gt;&gt;&gt; math.floor(1.2)
+1
+</code></pre>
+<h3 id="10python列表追加元素append">10.python列表追加元素（append）</h3>
+<pre><code class="language-python">&gt;&gt;&gt; aaa = [1,2,3]
+&gt;&gt;&gt; bbb = [4,5,6]
+&gt;&gt;&gt; aaa.append(bbb)
+&gt;&gt;&gt; aaa
+[1, 2, 3, [4, 5, 6]]
+&gt;&gt;&gt;
+</code></pre>
+<h3 id="11python列表追加元素extend">11.python列表追加元素（extend）</h3>
+<pre><code class="language-python">&gt;&gt;&gt; aaa = [1,2,3]
+&gt;&gt;&gt; bbb = [4,5,6]
+&gt;&gt;&gt; aaa.extend(bbb)
+&gt;&gt;&gt; aaa
+[1, 2, 3, 4, 5, 6]
+&gt;&gt;&gt;
+</code></pre>
+<h3 id="12python列表排序sort直接改变原始列表没有返回值-通过设置超参数reverse来控制正反序">12.python列表排序（sort，直接改变原始列表，没有返回值。通过设置超参数reverse来控制正反序）</h3>
+<pre><code class="language-python">&gt;&gt;&gt; aaa = [1,3,2,5,4,2]
+&gt;&gt;&gt; aaa
+[1, 3, 2, 5, 4, 2]
+&gt;&gt;&gt; aaa.sort()
+&gt;&gt;&gt; aaa
+[1, 2, 2, 3, 4, 5]
+&gt;&gt;&gt; aaa.sort(reverse=True)
+&gt;&gt;&gt; aaa
+[5, 4, 3, 2, 2, 1]
+</code></pre>
+<h3 id="13python列表排序sorted不直接改变原始列表有返回值-通过设置超参数reverse来控制正反序">13.python列表排序（sorted，不直接改变原始列表，有返回值。通过设置超参数reverse来控制正反序）</h3>
+<pre><code class="language-python">&gt;&gt;&gt; aaa = [1,3,5,2,4,6]
+&gt;&gt;&gt; aaa
+[1, 3, 5, 2, 4, 6]
+&gt;&gt;&gt; bbb = sorted(aaa)
+&gt;&gt;&gt; bbb
+[1, 2, 3, 4, 5, 6]
+&gt;&gt;&gt; ccc = sorted(aaa,reverse=True)
+&gt;&gt;&gt; ccc
+[6, 5, 4, 3, 2, 1]
+</code></pre>
+<h3 id="14python列表排序返回排好的下标">14.python列表排序（返回排好的下标）</h3>
+<ol>
+<li>
+<p>python中并无直接返回下标的函数，如果需要从pyton底层做这事，可以使用sort或者sorted加上for循环获取index。</p>
+</li>
+<li>
+<p>numpy中有函数返回排序后的下标：argsort</p>
+</li>
+<li>
+<p><strong>torch自带的sort函数可以直接返回排好序的列表和对应的索引（推荐）</strong></p>
+</li>
+</ol>
+<h3 id="15python列表逆序listreverse">15.python列表逆序list.reverse()</h3>
+<pre><code class="language-python">&gt;&gt;&gt; aaa = [1,2,3,4,5,6]
+&gt;&gt;&gt; aaa
+[1, 2, 3, 4, 5, 6]
+&gt;&gt;&gt; aaa.reverse()
+&gt;&gt;&gt; aaa
+[6, 5, 4, 3, 2, 1]
+</code></pre>
+<h3 id="16深拷贝和浅拷贝">16.深拷贝和浅拷贝</h3>
+<p>概念：</p>
+<ol>
+<li>
+<p>浅拷贝：只是增加了一个指针指向已存在的内存地址</p>
+</li>
+<li>
+<p>深拷贝：是增加了一个指针并且申请了一个新的内存，使这个增加的指针指向这个新的内存，</p>
+</li>
+</ol>
+<p>表象：假设B复制了A，修改A的时候，看B是否发生变化：</p>
+<ol>
+<li>
+<p>如果B跟着也变了，说明是浅拷贝</p>
+</li>
+<li>
+<p>如果B没有改变，说明是深拷贝</p>
+</li>
+</ol>
+<p>python中的实现：</p>
+<ol>
+<li>python赋值（只要初始元素进行了修改，赋值之后的元素也会修改，反之亦然）：</li>
+</ol>
+<pre><code class="language-python">&gt;&gt;&gt; aaa = [1,2,3]
+&gt;&gt;&gt; bbb = aaa
+&gt;&gt;&gt; aaa.append(4)
+&gt;&gt;&gt; aaa
+[1, 2, 3, 4]
+&gt;&gt;&gt; bbb
+[1, 2, 3, 4]
+&gt;&gt;&gt; aaa[0] = 100
+&gt;&gt;&gt; aaa
+[100, 2, 3, 4]
+&gt;&gt;&gt; bbb
+[100, 2, 3, 4]
+</code></pre>
+<ol start="2">
+<li>浅拷贝（初始元素的直接子元素修改后不会影响到拷贝后的元素，但是如果某个元素是可迭代对象，那么就会影响到后来的元素）：</li>
+</ol>
+<pre><code class="language-python">&gt;&gt;&gt; aaa = [1,2,[3,4]]
+&gt;&gt;&gt; bbb = aaa.copy()
+&gt;&gt;&gt; aaa[0] = 100
+&gt;&gt;&gt; bbb.append(0)
+&gt;&gt;&gt; aaa
+[100, 2, [3, 4]]
+&gt;&gt;&gt; bbb
+[1, 2, [3, 4], 0]
+&gt;&gt;&gt; aaa[2].append(200)
+&gt;&gt;&gt; aaa
+[100, 2, [3, 4, 200]]
+&gt;&gt;&gt; bbb
+[1, 2, [3, 4, 200], 0]
+</code></pre>
+<ol start="3">
+<li>深拷贝（拷贝后的变量和原来的变量没有任何关系，除了值一样，改变前后两个变量都是独立的，不会对另一个产生影响）：</li>
+</ol>
+<pre><code class="language-python">&gt;&gt;&gt; import copy
+&gt;&gt;&gt; aaa = [1,2,[3,4]]
+&gt;&gt;&gt; bbb = copy.deepcopy(aaa)
+&gt;&gt;&gt; aaa
+[1, 2, [3, 4]]
+&gt;&gt;&gt; bbb
+[1, 2, [3, 4]]
+&gt;&gt;&gt; aaa.append(5)
+&gt;&gt;&gt; bbb[0] = 100
+&gt;&gt;&gt; aaa
+[1, 2, [3, 4], 5]
+&gt;&gt;&gt; bbb
+[100, 2, [3, 4]]
+&gt;&gt;&gt; aaa[2].append(5)
+&gt;&gt;&gt; aaa
+[1, 2, [3, 4, 5], 5]
+&gt;&gt;&gt; bbb
+[100, 2, [3, 4]]
+</code></pre>
+<h3 id="17-python中range和xrange的区别">17. python中range和xrange的区别</h3>
+<ol>
+<li>
+<p>区别：xrange()与range()使用方法完全一样，区别就是range返回的是一个列表，xrange返回的是一个生成器</p>
+</li>
+<li>
+<p>注意：目前的python版本已经不支持xrange了，只有range。</p>
+</li>
+</ol>
+<h3 id="18python读取excel文件使用xlrd和xlwt">18.python读取excel文件/使用xlrd和xlwt</h3>
+<ol>
+<li>读取excel（未验证）</li>
+</ol>
+<pre><code class="language-python">&gt;&gt;&gt; import xlrd
+&gt;&gt;&gt; readbook = xlrd.open_workbook(r'\test\canying.xlsx')
+&gt;&gt;&gt; sheet = readbook.sheet_by_index(1)#索引的方式，从0开始
+&gt;&gt;&gt; sheet = readbook.sheet_by_name('sheet2')#名字的方式
+&gt;&gt;&gt; nrows = sheet.nrows#行
+&gt;&gt;&gt; ncols = sheet.ncols#列
+&gt;&gt;&gt; lng = table.cell(i,3).value#获取i行3列的表格值
+&gt;&gt;&gt; lat = table.cell(i,4).value#获取i行4列的表格值
+</code></pre>
+<ol start="2">
+<li>保存excel</li>
+</ol>
+<pre><code class="language-python">&gt;&gt;&gt; import xlwt
+&gt;&gt;&gt; writebook = xlwt.Workbook()#打开一个excel
+&gt;&gt;&gt; sheet = writebook.add_sheet('test')#在打开的excel中添加一个sheet
+&gt;&gt;&gt; sheet.write(i,0,result[0])#写入excel，i行0列
+&gt;&gt;&gt; writebook.save('answer.xls')#一定要记得保存
+</code></pre>
+<h3 id="19einopspython中对维度进行变换的库">19.einops（python中对维度进行变换的库）</h3>
+<ol>
+<li>维度互换--rearrange</li>
+</ol>
+<pre><code class="language-python">&gt;&gt;&gt; import torch
+&gt;&gt;&gt; from einops import rearrange
+&gt;&gt;&gt; x=torch.rand((10,3,224,224))
+&gt;&gt;&gt; print(x.size())
+torch.Size([10, 3, 224, 224])
+&gt;&gt;&gt; x = rearrange(x, 'b c h w -&gt;b h w c') #
+&gt;&gt;&gt; print(x.size())
+torch.Size([10, 224, 224, 3]) 
+</code></pre>
+<ol start="2">
+<li>维度合并--rearrange</li>
+</ol>
+<pre><code class="language-python">&gt;&gt;&gt; import torch
+&gt;&gt;&gt; from einops import rearrange
+&gt;&gt;&gt; x=torch.rand((10,3,224,224))
+&gt;&gt;&gt; print(x.size())
+torch.Size([10, 3, 224, 224])
+&gt;&gt;&gt; x = rearrange(x, 'b c h w -&gt;b c (h w)')
+&gt;&gt;&gt; print(x.size())
+torch.Size([10, 3, 50176])
+</code></pre>
+<ol start="3">
+<li>张量复制----repeat</li>
+</ol>
+<pre><code class="language-python">&gt;&gt;&gt; from einops import repeat
+&gt;&gt;&gt; x=torch.rand((224,224))
+&gt;&gt;&gt; x.shape
+torch.Size([224, 224])
+&gt;&gt;&gt; x_repeat = repeat(x,'h w -&gt; c h w', c=3)
+&gt;&gt;&gt; x_repeat.shape
+torch.Size([3, 224, 224])
+</code></pre>
+<h3 id="02map根据提供的函数对指定序列做映射lambda匿名函数">02.map(根据提供的函数对指定序列做映射),lambda(匿名函数)</h3>
+<p>第一个参数 function 以参数序列中的每一个元素调用 function 函数，返回包含每次 function 函数返回值的新列表。</p>
+<pre><code class="language-python">&gt;&gt;&gt; def square(x) :         # 计算平方数
+...     return x ** 2
+...
+&gt;&gt;&gt; map(square, [1,2,3,4,5])    # 计算列表各个元素的平方
+&lt;map object at 0x100d3d550&gt;     # 返回迭代器
+&gt;&gt;&gt; list(map(square, [1,2,3,4,5]))   # 使用 list() 转换为列表
+[1, 4, 9, 16, 25]
+&gt;&gt;&gt; list(map(lambda x: x ** 2, [1, 2, 3, 4, 5]))   # 使用 lambda 匿名函数
+[1, 4, 9, 16, 25]
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://haozhihang123.github.io/post/hello-gridea/</id>
