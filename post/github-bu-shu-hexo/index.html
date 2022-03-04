@@ -3,13 +3,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="description" content="
-欢迎来到我的小站呀，很高兴遇见你！🤝
-
-🏠 关于本站
-👨‍💻 博主是谁
-⛹ 兴趣爱好
-📬 联系我呀
-..." />
+title: github部署hexo博客
+date: 2021-10-13 22:15:13
+type: hexo
+categories: 博客搭建
+top_img: false
+将hexo博客部署到gitub上
+前言
+hexo博客可以..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://haozhihang123.github.io/media/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://haozhihang123.github.io/styles/main.css">
@@ -28,7 +29,7 @@
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
     <!-- 数学公式 -->
     
-    <title>关于</title>
+    <title>github部署hexo</title>
 
     <!-- 大纲索引css调整 -->
     
@@ -941,34 +942,121 @@ menulist.eq(i).show();
         <div class="postshow postpadding" style="padding-bottom: 0;">
             
             <div class="postdetailimg">
-                
-                <img src="/media/images/postdefault.png" class="postimage">
-                
+                <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.zyiz.net%2Fupload%2F202002%2F18%2F202002182223498227.png&amp;refer=http%3A%2F%2Fwww.zyiz.net&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1648983137&amp;t=99d2cdb56871217df0f4eb2e20468df8" class="postimage" style="cursor:auto">
             </div>
             <div class="postinfo-detail">
-                <div class="postdate"><i class="fa fa-calendar"></i>2019-01-25</div>
-            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 1 min read</div>
-            <div class="posttag">
-                
+                <div class="postdate"><i class="fa fa-calendar"></i>2022-03-04</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 5 min read</div>
+                <div class="posttag">
+                    
+                </div>
             </div>
-        </div>
-        
+            
         <div id="articlecontent">
             <div id="texttitle" style="text-align: center">
-                <h2 id="ptitle">关于</h2>
+                <h2 id="ptitle">github部署hexo</h2>
                 <!-- id 将作为查询条件 -->
-                <div id="pl" style="display:none">https://haozhihang123.github.io/post/about/</div>
+                <div id="pl" style="display:none">https://haozhihang123.github.io/post/github-bu-shu-hexo/</div>
                 <div id="rootaddr" style="display:none">https://haozhihang123.github.io</div>
                 
             </div>
             <div class="text ">
-                <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+                <hr>
+<h2 id="title-github部署hexo博客date-2021-10-13-221513type-hexocategories-博客搭建top_img-false">title: github部署hexo博客<br>
+date: 2021-10-13 22:15:13<br>
+type: hexo<br>
+categories: 博客搭建<br>
+top_img: false</h2>
+<h1 id="将hexo博客部署到gitub上">将hexo博客部署到gitub上</h1>
+<h2 id="前言">前言</h2>
+<p>hexo博客可以部署到github，coding，gitee等代码托管平台，优点是可以免费获得域名，不需要买服务器和域名，对于新手来说很友好，也更容易一些。上一篇文章详细介绍了如何在本地搭建hexo博客，并以本机为服务器查看构建的博客，缺点是只能自己在本地查看，其他人无法在网络上查看，本文通过将hexo博客部署到github上，从而使得所有人都可以看到自己写的博客。在后期，我个人觉得github这个域名不还好听，可以自己购买域名，然后关联到github中，这一部分放到最后讲述。</p>
+<h2 id="1-安装push工具">1. 安装push工具</h2>
+<p>在git终端中输入<strong>pm install hexo-deployer-git --save</strong>来安装push工具。成功的标志如下图：</p>
+<figure data-type="image" tabindex="1"><img src="https://haozhihang123.github.io/post-images/1646390740591.png" alt="" loading="lazy"></figure>
+<h2 id="2-配置ssh-key">2. 配置SSH key</h2>
+<p>在终端中输入<strong>ssh-keygen -t rsa -C &quot;用户邮箱&quot;</strong>，此时终端会要求你输入内容：</p>
+<figure data-type="image" tabindex="2"><img src="https://haozhihang123.github.io/post-images/1646390752444.png" alt="" loading="lazy"></figure>
+<p>直接回车即可，此时回弹出第二次输入：</p>
+<figure data-type="image" tabindex="3"><img src="https://haozhihang123.github.io/post-images/1646390759778.png" alt="" loading="lazy"></figure>
+<p>继续回车，显示再次输入：</p>
+<figure data-type="image" tabindex="4"><img src="https://haozhihang123.github.io/post-images/1646390767486.png" alt="" loading="lazy"></figure>
+<p>继续回车，成功。</p>
+<figure data-type="image" tabindex="5"><img src="https://haozhihang123.github.io/post-images/1646390773563.png" alt="" loading="lazy"></figure>
+<p>接着在终端中输入<strong>clip &lt; ~/.ssh/id_rsa.pub</strong>将公钥复制到系统的粘贴板上。</p>
+<figure data-type="image" tabindex="6"><img src="https://haozhihang123.github.io/post-images/1646390783055.png" alt="" loading="lazy"></figure>
+<p>此时可以通过<strong>ctrl + v</strong>可以复制出来，待会github需要。如果中途使用<strong>ctrl + c</strong>，则会覆盖这次的内容，重新在这个终端输入一次:<strong>clip &lt; ~/.ssh/id_rsa.pub</strong>即可。</p>
+<h2 id="3-github网站配置密钥">3. github网站配置密钥。</h2>
+<p>登陆github网站：https://github.com/ ，点击右上角的<strong>sign in</strong>。</p>
+<p><img src="https://haozhihang123.github.io/post-images/1646390792835.png" alt="" loading="lazy"><br>
+<img src="https://haozhihang123.github.io/post-images/1646390798430.png" alt="" loading="lazy"></p>
+<p>如果有github账号，直接输入上面红框账户密码即可。如果没有，在下方点击蓝色链接<strong>create an account</strong>创建账号，和普通创建账号一样，按要求输入即可。登陆github后，进入settings。</p>
+<figure data-type="image" tabindex="7"><img src="https://haozhihang123.github.io/post-images/1646390806316.png" alt="" loading="lazy"></figure>
+<p>点击左侧<strong>SSH and GPG Keys</strong>，然后点击右侧的<strong>New SSH key</strong>：</p>
+<figure data-type="image" tabindex="8"><img src="https://haozhihang123.github.io/post-images/1646390812684.png" alt="" loading="lazy"></figure>
+<p>Title随便写，下面的key是刚才运行<strong>clip &lt; ~/.ssh/id_rsa.pub</strong>后粘贴板的内容，通过<strong>ctrl + v</strong>即可复制到key的框中，内容大致与我类似，如果差别很大，可能是中途用过<strong>ctrl + c</strong>，在终端重新运行一次<strong>clip &lt; ~/.ssh/id_rsa.pub</strong>即可。最终点击<strong>Add ssh key</strong>。</p>
+<figure data-type="image" tabindex="9"><img src="https://haozhihang123.github.io/post-images/1646390818802.png" alt="" loading="lazy"></figure>
+<p>密钥配置成功标志：</p>
+<figure data-type="image" tabindex="10"><img src="https://haozhihang123.github.io/post-images/1646390825284.png" alt="" loading="lazy"></figure>
+<h2 id="4-在git终端链接公钥">4. 在git终端链接公钥。</h2>
+<p>接着回到终端输入:ssh -T git@github.com</p>
+<figure data-type="image" tabindex="11"><img src="https://haozhihang123.github.io/post-images/1646390833586.png" alt="" loading="lazy"></figure>
+<p>按要求在终端中输入yes。</p>
+<figure data-type="image" tabindex="12"><img src="https://haozhihang123.github.io/post-images/1646390840377.png" alt="" loading="lazy"></figure>
+<p>有successfully说明链接成功。</p>
+<h2 id="5-在github新建仓库">5. 在github新建仓库。</h2>
+<p>点击右上角的头像，然后点击<strong>your respository</strong>。</p>
+<figure data-type="image" tabindex="13"><img src="https://haozhihang123.github.io/post-images/1646390849278.png" alt="" loading="lazy"></figure>
+<p>点击<strong>new</strong>创建新仓库。</p>
+<figure data-type="image" tabindex="14"><img src="https://haozhihang123.github.io/post-images/1646390856647.png" alt="" loading="lazy"></figure>
+<p>仓库的构建如下图，需要注意的是，仓库的名字必须是<strong>你的github名字+github.io</strong>，如果错了将会很麻烦。</p>
+<figure data-type="image" tabindex="15"><img src="https://haozhihang123.github.io/post-images/1646390862556.png" alt="" loading="lazy"></figure>
+<p>新建仓库的结果：仓库的主分支名字是main，这个一会会用到。</p>
+<figure data-type="image" tabindex="16"><img src="https://haozhihang123.github.io/post-images/1646390869512.png" alt="" loading="lazy"></figure>
+<h2 id="6-将本地的hexo文件上传到github新建的仓库中">6. 将本地的hexo文件上传到github新建的仓库中。</h2>
+<p>在刚才的界面点击code，选择SSH，然后点击右侧按钮复制。</p>
+<figure data-type="image" tabindex="17"><img src="https://haozhihang123.github.io/post-images/1646390878566.png" alt="" loading="lazy"></figure>
+<p>打开本地创建的博客文件夹中的_config.yml文件</p>
+<figure data-type="image" tabindex="18"><img src="https://haozhihang123.github.io/post-images/1646390886229.png" alt="" loading="lazy"></figure>
+<p>翻到文件底端，找到develop字段进行修改：</p>
+<p>改之前：</p>
+<figure data-type="image" tabindex="19"><img src="https://haozhihang123.github.io/post-images/1646390911625.png" alt="" loading="lazy"></figure>
+<p>改之后：</p>
+<figure data-type="image" tabindex="20"><img src="https://haozhihang123.github.io/post-images/1646390918611.png" alt="" loading="lazy"></figure>
+<p>第一个固定为git，第二个是刚才复制的结果，第三个是main，后两项来自于下图。</p>
+<figure data-type="image" tabindex="21"><img src="https://haozhihang123.github.io/post-images/1646390925187.png" alt="" loading="lazy"></figure>
+<p>回到之前的终端：输入<strong>hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</strong>，输出一下内容说明成功。</p>
+<figure data-type="image" tabindex="22"><img src="https://haozhihang123.github.io/post-images/1646390930952.png" alt="" loading="lazy"></figure>
+<p>刷新github仓库，可以看到博客内容已经上传。</p>
+<h2 id="7-查看自己博客的网址">7. 查看自己博客的网址。</h2>
+<p>点击setting→pages.</p>
+<figure data-type="image" tabindex="23"><img src="https://haozhihang123.github.io/post-images/1646390937126.png" alt="" loading="lazy"></figure>
+<p>注意一点：这三个位置的名字必须完全一样，大小写不同也不行。不一样的结果就是打不开blog。</p>
+<figure data-type="image" tabindex="24"><img src="https://haozhihang123.github.io/post-images/1646390943763.png" alt="" loading="lazy"></figure>
+<p>可以看到博客网站已经生成成功，点击网站即可进入个人博客。直接在浏览器搜索栏里输入也可以显示。这就从本地上升到了所有人都可看的程度。</p>
+<figure data-type="image" tabindex="25"><img src="https://haozhihang123.github.io/post-images/1646390949670.png" alt="" loading="lazy"></figure>
+<h2 id="8-github绑定自己购买的域名">8. github绑定自己购买的域名。</h2>
+<ol>
+<li>
+<p>准备工作</p>
+<p>（1）已购买好域名</p>
+<p>（2）网站博客已经可以根据username.github.io进行访问</p>
+</li>
+<li>
+<p>开始配置</p>
+</li>
+</ol>
+<p>首先在hexo根目录下的source文件夹内创建CNAME文件（注意：没有任何后缀）</p>
+<figure data-type="image" tabindex="26"><img src="https://haozhihang123.github.io/post-images/1646390958956.png" alt="" loading="lazy"></figure>
+<p>CNAME文件的内容只填写你购买的域名（如我的：dclxfz.xyz，不要带www，https之类的前缀）</p>
+<figure data-type="image" tabindex="27"><img src="https://haozhihang123.github.io/post-images/1646390966871.png" alt="" loading="lazy"></figure>
+<p>回到购买域名的网站，修改你的域名解析记录，主要修改记录类型和记录值，其中记录值是username.github.io，例子如下：</p>
+<figure data-type="image" tabindex="28"><img src="https://haozhihang123.github.io/post-images/1646390972166.png" alt="" loading="lazy"></figure>
+<p>最终输入<strong>hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</strong>重新上传博客，github上的根目录会多出刚才创建的CNAME文件。</p>
+<figure data-type="image" tabindex="29"><img src="https://haozhihang123.github.io/post-images/1646390977650.png" alt="" loading="lazy"></figure>
+<p>到该仓库的设置-&gt;pages中查看，域名已经生成好，可能需要过一段时间才会生效，期间可能进不去。</p>
+<figure data-type="image" tabindex="30"><img src="https://haozhihang123.github.io/post-images/1646390982753.png" alt="" loading="lazy"></figure>
+<p>至此，自己搭建的博客基本完成。<br>
+😀😀😀😀</p>
 
             </div>
             <hr style="width: 80%;">
@@ -976,7 +1064,7 @@ menulist.eq(i).show();
             <div class="postfooter">
                 <ul class="post-copyright">
                     <li><strong>文章作者：</strong></li>
-            <li><strong>原文链接：</strong>https://haozhihang123.github.io/post/about/</li>
+            <li><strong>原文链接：</strong>https://haozhihang123.github.io/post/github-bu-shu-hexo/</li>
             <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用<i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA
                 许可协议。转载请注明出处！</li>
             </ul>
@@ -984,6 +1072,18 @@ menulist.eq(i).show();
         
         <div id="otherpost">
             
+            
+            <a data-pjax class="next-post-pc" href="https://haozhihang123.github.io/post/python-ri-chang-wen-ti-hui-zong/"  style="color: black;">
+                <div id="npcontainer">
+                    
+                    <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic4.zhimg.com%2Fv2-6c272f6470a98eca718c2fd550bbd804_1440w.jpg&amp;refer=http%3A%2F%2Fpic4.zhimg.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1648732365&amp;t=947fd8dc0ed60729b2c00df201efa52e" style="width: 100%;" class="opimg">
+                    
+                    <h4 class="optitle">python日常问题汇总</h4>
+                </div>
+            </a>
+            <div class="next-post">
+                下一篇 <a  data-pjax href="https://haozhihang123.github.io/post/python-ri-chang-wen-ti-hui-zong/">python日常问题汇总</a>
+            </div>
             
         </div>
     </div>
@@ -1005,10 +1105,24 @@ menulist.eq(i).show();
                         <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99">🏠 关于本站</a></li>
-<li><a href="#%E5%8D%9A%E4%B8%BB%E6%98%AF%E8%B0%81">👨‍💻 博主是谁</a></li>
-<li><a href="#%E5%85%B4%E8%B6%A3%E7%88%B1%E5%A5%BD">⛹ 兴趣爱好</a></li>
-<li><a href="#%E8%81%94%E7%B3%BB%E6%88%91%E5%91%80">📬 联系我呀</a></li>
+<li><a href="#title-github%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2date-2021-10-13-221513type-hexocategories-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BAtop_img-false">title: github部署hexo博客<br>
+date: 2021-10-13 22:15:13<br>
+type: hexo<br>
+categories: 博客搭建<br>
+top_img: false</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0gitub%E4%B8%8A">将hexo博客部署到gitub上</a>
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#1-%E5%AE%89%E8%A3%85push%E5%B7%A5%E5%85%B7">1. 安装push工具</a></li>
+<li><a href="#2-%E9%85%8D%E7%BD%AEssh-key">2. 配置SSH key</a></li>
+<li><a href="#3-github%E7%BD%91%E7%AB%99%E9%85%8D%E7%BD%AE%E5%AF%86%E9%92%A5">3. github网站配置密钥。</a></li>
+<li><a href="#4-%E5%9C%A8git%E7%BB%88%E7%AB%AF%E9%93%BE%E6%8E%A5%E5%85%AC%E9%92%A5">4. 在git终端链接公钥。</a></li>
+<li><a href="#5-%E5%9C%A8github%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93">5. 在github新建仓库。</a></li>
+<li><a href="#6-%E5%B0%86%E6%9C%AC%E5%9C%B0%E7%9A%84hexo%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%88%B0github%E6%96%B0%E5%BB%BA%E7%9A%84%E4%BB%93%E5%BA%93%E4%B8%AD">6. 将本地的hexo文件上传到github新建的仓库中。</a></li>
+<li><a href="#7-%E6%9F%A5%E7%9C%8B%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%BD%91%E5%9D%80">7. 查看自己博客的网址。</a></li>
+<li><a href="#8-github%E7%BB%91%E5%AE%9A%E8%87%AA%E5%B7%B1%E8%B4%AD%E4%B9%B0%E7%9A%84%E5%9F%9F%E5%90%8D">8. github绑定自己购买的域名。</a></li>
 </ul>
 </li>
 </ul>
