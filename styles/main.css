@@ -129,7 +129,7 @@
     /*图片高度除以宽度，得到此值*/
     background: url("") center center;
     /*两个center分别为水平和垂直方向的对齐方式*/
-    background-size: 100%;
+    background-size: cover !important;
     /*背景水平铺满*/
     /*虚化值，越大越模糊*/
     position: fixed;
